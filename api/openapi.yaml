@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: Stakan API
+  version: "0.1"
+  description: |
+    Public API for the "Stakan" screener.
+generating server-side interfaces (via oapi-codegen) and client-side types.
+servers:
+  - url: https://api.stakan.app/api/v1
+paths:
+  /ping:
+    get:
+      operationId: ping
+      summary: Liveness probe placeholder (stage 0)
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string

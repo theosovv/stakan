@@ -1,0 +1,29 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: redpanda
+    static_configs:
+      - targets: ["redpanda:9644"]
+
+  # Go services expose /metrics; added as they come online (stage 1+):
+  # - job_name: gateway
+  #   static_configs:
+  #     - targets: ["gateway:8080"]
+  # - job_name: connectors
+  #   static_configs:
+  #     - targets: ["connector-binance:8101", "connector-bybit:8101"]
+  # - job_name: writer
+  #   static_configs:
+  #     - targets: ["writer:8102"]
+  # - job_name: alertd
+  #   static_configs:
+  #     - targets: ["alertd:8103"]
+  # - job_name: tgbot
+  #   static_configs:
+  #     - targets: ["tgbot:8105"]

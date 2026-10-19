@@ -1,0 +1,37 @@
+version: "2"
+
+run:
+  tests: true
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - unused
+    - ineffassign
+    - misspell
+    - revive
+    - wrapcheck
+  settings:
+    wrapcheck:
+      ignore-sigs:
+        - .Errorf(
+        - errors.New(
+        - errors.Unwrap(
+        - .Wrap(
+        - .Wrapf(
+        - .WithMessage(
+  exclusions:
+    paths:
+      - web/node_modules
+      - web/dist
+    rules:
+      - path: _test\.go
+        linters:
+          - wrapcheck
+
+formatters:
+  enable:
+    - gofmt
+    - goimports

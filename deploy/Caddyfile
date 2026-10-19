@@ -1,0 +1,18 @@
+# Stage 0: placeholder. stakan.app will serve the SPA, api.stakan.app the gateway.
+
+:80 {
+	respond /healthz 200 {
+		body "ok"
+	}
+	respond "stakan: deploy pending (stage 0)"
+}
+
+# Target state (stage 1+):
+#
+# stakan.app {
+# 	reverse_proxy web:80
+# }
+#
+# api.stakan.app {
+# 	reverse_proxy gateway:8080
+# }
